@@ -3,7 +3,7 @@ import useAxiosPrivate from "./usePrivate"
 
 export default function useUser() {
 
-    const { isLoggedIn, setUser } = useAuth()
+    const { isLoggedIn, setUser, setIsLoggedIn } = useAuth()
     const axiosPrivateInstance = useAxiosPrivate()
 
     async function getUser() {
@@ -16,7 +16,7 @@ export default function useUser() {
 
             setUser(data)
         } catch (error) {
-            console.log(error.response)
+            console.log("===", error.response)
         }
     }
 

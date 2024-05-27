@@ -5,6 +5,8 @@ import Register from './pages/auth/Register';
 import Home from './pages/Home';
 import User from './pages/auth/User'
 import Success from './pages/Success'
+import HelloWorld from './pages/apps/HelloWorld'
+import HelloUniverse from './pages/apps/HelloUniverse'
 import Cancel from './pages/Cancel'
 import PersistLogin from './components/PersistLogin';
 import Navbar from "./components/Navbar"
@@ -23,6 +25,8 @@ function App() {
             <Route index element={<User />}></Route>
           </Route>
         </Route>
+        <Route path='hello_world' element={<HelloWorld />}></Route>
+        <Route path='hello_universe' element={<HelloUniverse />}></Route>
         <Route path='success' element={<Success />}></Route>
         <Route path='cancel' element={<Cancel />}></Route> 
       </Route>

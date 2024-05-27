@@ -39,7 +39,8 @@ export default function Login() {
             setPassword()
             setLoading(false)
 
-            navigate(fromLocation, { replace: true })
+            navigate('/hello_world')
+            // navigate(fromLocation, { replace: true })
         } catch (error) {
             setLoading(false)
             // TODO: handle errors

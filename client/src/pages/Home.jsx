@@ -10,13 +10,6 @@ export default function Home() {
 
     const [loading, setLoading] = useState(false);
     const [tab, setTab] = useState('world');
-    const [card, setCard] = useState({
-        number: '',
-        expiry: '',
-        cvc: '',
-        name: '',
-        focus: '',
-    });
 
     async function paySubscription(subType) {
         let price = '';
@@ -50,51 +43,14 @@ export default function Home() {
     }
 
     return (
-        <div className='container'>
-            <h2>Susbcriptions</h2>
-            {user?.email !== undefined ? (
+        <div className='container mt-3'>
+            <h2>
                 <div className='row'>
                     <div className="mb-12">
-                        <Tabs
-                            id="uncontrolled-tab-example"
-                            activeKey={tab}
-                            onSelect={(k) => setTab(k)}
-                            className="mb-3"
-                        >
-                            <Tab eventKey="world" title="Hello World">
-                                Hello World App
-                                <br />
-                                <button disabled={loading} className='btn btn-success' type="submit" onClick={() => { paySubscription('individual') }}>
-                                    Individual
-                                </button>
-                                &nbsp;&nbsp;
-                                <button disabled={loading} className='btn btn-success' type="submit" onClick={() => { paySubscription('group') }}>
-                                    Group
-                                </button>
-                                &nbsp;&nbsp;
-                                <button disabled={loading} className='btn btn-success' type="submit" onClick={() => { paySubscription('business') }}>
-                                    Business
-                                </button>
-                            </Tab>
-                            <Tab eventKey="universe" title="Hello Universe">
-                                Hello Universe App
-                                <br />
-                                <button disabled={loading} className='btn btn-success' type="submit" onClick={() => { paySubscription('individual') }}>
-                                    Individual
-                                </button>
-                                &nbsp;&nbsp;
-                                <button disabled={loading} className='btn btn-success' type="submit" onClick={() => { paySubscription('group') }}>
-                                    Group
-                                </button>
-                                &nbsp;&nbsp;
-                                <button disabled={loading} className='btn btn-success' type="submit" onClick={() => { paySubscription('business') }}>
-                                    Business
-                                </button>
-                            </Tab>
-                        </Tabs>
+                        {user?.email !== undefined ? 'Welcome to the application' : 'Please login first'}
                     </div>
                 </div>
-            ) : 'Please login first'}
+            </h2>
         </div>
     )
 }

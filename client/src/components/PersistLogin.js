@@ -7,7 +7,7 @@ import useRefreshToken from '../hooks/useRefreshToken'
 export default function PersistLogin() {
 
     const refresh = useRefreshToken()
-    const { accessToken, isLoggedIn, setUser } = useAuth()
+    const { accessToken, isLoggedIn, setUser, setIsLoggedIn } = useAuth()
     const [loading, setLoading] = useState(true)
     const axiosPrivate = useAxiosPrivate()
 
@@ -25,6 +25,7 @@ export default function PersistLogin() {
                 const { data } = await axiosPrivate.get('auth/user')
                 setUser(data)
             } catch (error) {
+                setIsLoggedIn(false);
                 console.log(error?.response)
             } finally {
                 isMounted && setLoading(false)

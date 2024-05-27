@@ -11,6 +11,8 @@ export const AuthContext = createContext({
     setCSRFToken: () => { },
     isLoggedIn: false,
     setIsLoggedIn: () => { },
+    subscriptions: [],
+    setSubscriptions: () => { },
 })
 
 export function AuthContextProvider(props) {
@@ -20,6 +22,7 @@ export function AuthContextProvider(props) {
     const [refreshToken, setRefreshToken] = useState()
     const [csrftoken, setCSRFToken] = useState()
     const [isLoggedIn, setIsLoggedIn] = useState(JSON.parse(localStorage.getItem('isLoggedIn')) || false)
+    const [subscriptions, setSubscriptions] = useState([])
 
     useEffect(() => {
         localStorage.setItem('isLoggedIn', JSON.stringify(isLoggedIn))
@@ -31,7 +34,8 @@ export function AuthContextProvider(props) {
             accessToken, setAccessToken,
             refreshToken, setRefreshToken,
             csrftoken, setCSRFToken,
-            isLoggedIn, setIsLoggedIn
+            isLoggedIn, setIsLoggedIn,
+            subscriptions, setSubscriptions
         }}>
             {props.children}
         </AuthContext.Provider>

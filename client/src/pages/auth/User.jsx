@@ -26,7 +26,7 @@ export default function User() {
     }
     
     return (
-        <div>
+        <div className='container mt-3'>
             <h4>{user?.id}</h4>
             <h4>{user?.username}</h4>
             <h4>{user?.email}</h4>
