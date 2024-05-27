@@ -53,6 +53,9 @@ export default function HelloUniverse() {
                 showSubscription()
             ) : user?.email ? (
                     <div className='row'>
+                        <h4>Hello Universe</h4>
+                        <h5>Please subscribe to Hello Universe App</h5>
+                        <hr />
                         <div className='col-lg-4 col-md-4 col-sm-12'>
                             <div style={{textAlign: "center"}}>
                                 <h4>Individual</h4>
